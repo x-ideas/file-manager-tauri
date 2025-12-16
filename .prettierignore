@@ -1,0 +1,5 @@
+# prettier默认ignore 版本控制文件和.gitignore中指定的文件
+
+pnpm-lock.yaml
+*.md
+*.json
