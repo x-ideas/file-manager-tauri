@@ -44,15 +44,23 @@ function writeJson(filePath, data) {
  */
 function updateCargoToml(version) {
 	const cargoPath = join(rootDir, 'src-tauri', 'Cargo.toml');
-	let content = readFileSync(cargoPath, 'utf-8');
+	const originalContent = readFileSync(cargoPath, 'utf-8');
 
 	// Replace version in [package] section
-	content = content.replace(
+	const updatedContent = originalContent.replace(
 		/^version\s*=\s*"[^"]+"/m,
 		`version = "${version}"`,
 	);
 
-	writeFileSync(cargoPath, content, 'utf-8');
+	// Verify that the replacement occurred
+	if (originalContent === updatedContent) {
+		console.error(
+			`Error: Failed to find version pattern in ${cargoPath}. Expected pattern: version = "x.y.z"`,
+		);
+		process.exit(1);
+	}
+
+	writeFileSync(cargoPath, updatedContent, 'utf-8');
 	console.log(`✓ Updated Cargo.toml to version ${version}`);
 }
 
