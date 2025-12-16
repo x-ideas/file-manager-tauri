@@ -1,0 +1,15 @@
+# It is used to automatically add labels to issues and pull requests.
+# For more information, see: https://github.com/actions/labeler?tab=readme-ov-file
+
+# Documentation labels - matches release.yml "Documentation 📚" category
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: docs/**
+      - any-glob-to-any-file: '*.md'
+      - any-glob-to-any-file: README*
+      - any-glob-to-any-file: CHANGELOG*
+      - any-glob-to-any-file: CONTRIBUTING*
+
+# Add 'release' label to any PR that is opened against the `main` branch
+release:
+  - base-branch: 'release'

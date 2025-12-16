@@ -5,6 +5,7 @@ import * as importX from 'eslint-plugin-import-x';
 import { createNodeResolver } from 'eslint-plugin-import-x';
 import oxlint from 'eslint-plugin-oxlint';
 import prettier from 'eslint-plugin-prettier/recommended';
+import globals from 'globals';
 import { configs as tsConfigs } from 'typescript-eslint';
 
 /**
@@ -130,15 +131,21 @@ export default [
 			],
 
 			'no-console': 'off',
-			'no-restricted-syntax': [
-				'error',
-				{
-					selector:
-						"CallExpression[callee.object.name='console'][callee.property.name=/^(log|warn|error|info|trace)$/]",
-					message:
-						'Unexpected property on console object was called, you should use logger imported from @x-pkg/logger instead',
-				},
-			],
+			// 'no-restricted-syntax': [
+			// 	'error',
+			// 	{
+			// 		selector:
+			// 			"CallExpression[callee.object.name='console'][callee.property.name=/^(log|warn|error|info|trace)$/]",
+			// 		message:
+			// 			'Unexpected property on console object was called, you should use logger imported from @x-pkg/logger instead',
+			// 	},
+			// ],
+		},
+		languageOptions: {
+			globals: {
+				...globals.node,
+				...globals.browser,
+			},
 		},
 	},
 ];
