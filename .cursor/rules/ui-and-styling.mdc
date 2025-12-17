@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+description: UI和样式指南，聚焦于Tailwind CSS和Shadcn UI的最佳实践。
+globs: **/*.{ts,tsx,js,jsx}
+---
+
+* 使用Tailwind CSS utility classes进行组件样式设计。
+* 遵循Shadcn UI组件指南和最佳实践。
+* 确保UI是响应式和可访问的。

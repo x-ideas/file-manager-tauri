@@ -1,0 +1,5 @@
+---
+alwaysApply: true
+description: 专注于React和TypeScript项目的通用规则，聚焦于代码清晰性和最佳实践。
+globs: **/*.{ts,tsx,js,jsx}
+---
