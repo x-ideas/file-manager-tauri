@@ -1,0 +1,10 @@
+---
+alwaysApply: true
+description: TypeScript使用指南，包括严格类型和接口使用。
+globs: **/*.{ts,tsx}
+---
+
+* 利用TypeScript的特性确保类型安全。
+* 在定义对象结构时，优先使用接口而不是类型。
+* 使用泛型创建可重用的组件和函数。
+* 强制严格类型，尽量避免使用'any'类型。

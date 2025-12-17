@@ -1,0 +1,14 @@
+---
+alwaysApply: true
+description: Rust最佳实践
+globs: **/*.rs
+---
+
+* 需要遵循Rust的最佳实践。
+* 遵循单一职责原则，代码需要模块化、可维护、可扩展。
+* 有完整的单元测试，测试代码需要清晰、简洁。有文档注释用来方便理解用例的设计思路。
+
+
+风格：
+* 文件名: 采用`kebab-case`命名方式，例如`file-manager.rs`。
+* 变量和函数名: 采用`camelCase`命名方式，例如`fileManager`。

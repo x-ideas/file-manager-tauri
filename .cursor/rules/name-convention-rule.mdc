@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+description: 命名规范规则，强制要求React和TypeScript代码遵循特定的命名规范，以保持一致性。
+globs: **/*.{ts,tsx,js,jsx}
+---
+
+* 遵循typescript和react的命名规范。
+* 文件名: 采用`kebab-case`命名方式，例如`file-manager.tsx`。
+* 变量和函数名: 采用`camelCase`命名方式，例如`fileManager`。

@@ -1,0 +1,65 @@
+---
+alwaysApply: true
+description: 项目规则，聚焦于项目结构和最佳实践。
+globs: **/*.{ts,tsx,rs}
+---
+
+## 项目说明
+* 项目为tauri v2项目，前端使用react开发，后端使用rust开发
+* 前后端交互的接口需要进行封装，前端封装的通信接口位于`src/core/api`目录下，后端提供的接口位于`src-tauri/src`目录下。前后端接口文件一一对应。
+* 文档位于`docs`目录下，如有新增文档，请在`docs`目录下新增文件。
+
+## 技术栈
+* 前端
+  * React
+  * TypeScript
+  * Tailwind CSS
+  * Shadcn UI
+  * React Router V7
+  * pnpm
+* 后端
+  * Tauri V2(Rust)
+
+## 前端结构
+前端项目位于`src`目录下，前端项目结构如下：
+```
+src/
+├── components/ # 通用组件
+|__ modules/ # 模块
+|  |__home/ # 首页模块，包含首页的组件、路由、插件等
+├── routes/  # 路由
+|  |__home.tsx # 首页
+├── core/
+|  |__api/ # 通信接口
+|  |__plugins/ # 插件
+└── root.tsx # 入口文件
+|__ routes.ts # 路由配置文件
+```
+结构说明：
+* 路由文件和模块对应，如`routes/home.tsx`对应`modules/home`模块。
+  * 模块文件夹内包含该路由所需要的组件，hooks，utils等所有相关文件。
+  * 路由文件通过调用从模块文件夹内引入组件、hooks、utils等所有相关文件，完成业务逻辑。
+* 
+
+## 后端结构
+后端项目位于`src-tauri`目录下，后端项目结构如下：
+```
+src-tauri/
+├── src/ # 源代码
+|  |__ lib.rs # 库文件，对外暴露接口
+|  |__ file.rs # 封装的文件操作接口，供lib.rs引用
+|__ capabilities/ 
+|  |__default.json # 权限配置
+|__ tauri.conf.json # 配置文件
+```
+结构说明：
+* 新增的接口文件，位于`src`目录下，并在`lib.rs`中暴露接口。
+
+
+## 常用命令
+* 开发：pnpm tauri dev
+* 构建：pnpm tauri build
+* 清理：pnpm run clean
+* 格式化：pnpm run fmt
+* 检查：pnpm run lint
+* 测试：pnpm run test

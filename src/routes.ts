@@ -1,6 +1,9 @@
 // eslint-disable-next-line import-x/no-extraneous-dependencies
-import { index } from '@react-router/dev/routes';
+import { index, route } from '@react-router/dev/routes';
 
 import type { RouteConfig } from '@react-router/dev/routes';
 
-export default [index('routes/home.tsx')] satisfies RouteConfig;
+export default [
+	index('routes/home.tsx'),
+	route('main', 'routes/main.tsx'),
+] satisfies RouteConfig;
